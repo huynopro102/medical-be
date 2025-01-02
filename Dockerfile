@@ -1,14 +1,27 @@
-# Base image
-FROM node:18-alpine
+# Use a specific Node.js version
+FROM node:18.19.0
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create app directory
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# Copy package files
 COPY package*.json ./
 
-RUN npm install
+# Clear npm cache and remove existing node_modules
+RUN npm cache clean --force
+RUN rm -rf node_modules
+
+# Install dependencies
+RUN npm install --build-from-source
+RUN npm rebuild bcrypt --build-from-source
 
 # Bundle app source
 COPY . .
@@ -16,5 +29,5 @@ COPY . .
 # Expose port
 EXPOSE 3000
 
-# Start command
+# Start the server
 CMD [ "npm", "start" ]
