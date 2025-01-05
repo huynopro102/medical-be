@@ -1,6 +1,6 @@
 const { connect } = require("mongoose");
 
-const dbConnectionString = "mongodb+srv://huynopro102:qezhVAdgt1uC6A4X@cluster0.1qgyv.mongodb.net/";
+const dbConnectionString = "mongodb+srv://nguyen_tuan_huy:dgFyyRbi3oK42sgk@cluster0.jbf7rol.mongodb.net/";
 
 connect(dbConnectionString, {
  useNewUrlParser: true,
