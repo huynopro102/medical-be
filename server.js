@@ -49,7 +49,11 @@ app.get("/", (req, res) => {
 });
 
 
-
+app.get("/huynguyen", (req, res) => {
+  res.json({
+    message: "Huy Nguyen",
+  });
+});
 
 const port = 5000;
 const portSocket = 3000;
