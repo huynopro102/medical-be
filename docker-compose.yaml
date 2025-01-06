@@ -9,10 +9,16 @@ services:
       - "5000:5000"
       - "3000:3000"
     container_name: backend
+    volumes:
+      - uploads_medical:/app/uploads
     networks:
       - network_shared
 
 networks:
   network_shared:
     driver: bridge
+volumes:
+  uploads_medical:
+    name: uploads_medical
+
 
