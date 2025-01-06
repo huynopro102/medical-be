@@ -82,4 +82,7 @@ For any queries or support, please contact:
 
 ---
 We aim to deliver a robust and user-friendly hospital management solution that meets the needs of modern healthcare facilities.
-
+---
+1: npm install
+2: npm creataAdmin ( create a user admin for login. Account: admin@gmail.com/123456 )
+3: npm run dev
