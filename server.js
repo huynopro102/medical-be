@@ -50,7 +50,9 @@ app.get("/", (req, res) => {
 
 
 app.get("/huynguyen", (req, res) => {
-  res.send("Hello Huy Nguyen");
+  res.json({
+    message: "Huy Nguyen",
+  });
 });
 
 const port = 5000;
