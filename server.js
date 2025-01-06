@@ -48,6 +48,11 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/src/view/serverRunning.html"));
 });
 
+
+app.get("/huynguyen", (req, res) => {
+  res.send("Hello Huy Nguyen");
+});
+
 const port = 5000;
 const portSocket = 3000;
 const { createServer } = require("http");
