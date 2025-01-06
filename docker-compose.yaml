@@ -17,6 +17,10 @@ services:
 networks:
   network_shared:
     driver: bridge
+    external: true  # Nếu network đã tồn tại  
+
+volumes:
+  uploads_medical:
 
 
 
