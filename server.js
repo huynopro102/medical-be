@@ -55,7 +55,10 @@ app.get("/huynguyen", (req, res) => {
   });
 });
 
-const port = 5000;
+
+// ------------------------------------------------------------------------------------------------
+
+
 const portSocket = 3000;
 const { createServer } = require("http");
 const { Server } = require("socket.io");
@@ -99,6 +102,9 @@ io.on("connection", (socket) => {
 });
 
 httpServer.listen(portSocket);
+
+// ------------------------------------------------------------------------------------------------
+const port = 5000;
 app.listen(port, () => {
   console.log("Server is Running on " + port);
 });

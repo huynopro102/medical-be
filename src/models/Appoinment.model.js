@@ -23,6 +23,7 @@ const AppointmentSchema = Schema({
     type: Boolean,
     default: false,
   },
+  // optional default value
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });

@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('ssh to server with user tuanhuy') {
+        stage('ssh to server with user ubuntu-aws') {
             steps {
-                sshagent(['ssh-remote-user-tuanhuy']) {
+                sshagent(['ssh-remote-user-ubuntu-aws']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no -l tuanhuy 15.235.197.40 "cd /home/tuanhuy && ./deploy_medical_be.sh"
+                        ssh -o StrictHostKeyChecking=no -l ubuntu 15.235.197.40 "cd /home/ubuntu && ./deploy_medical_be.sh "
                     '''
                 }
             }
@@ -24,4 +24,5 @@ pipeline {
             echo 'Code checkout failed!'
         }
     }
+    
 }
