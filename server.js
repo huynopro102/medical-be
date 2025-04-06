@@ -10,11 +10,10 @@ dayjs.extend(customParseFormat);
 
 const app = express();
 app.use(fileUpload());
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+
+// remove cors for server
+app.use(cors());
+
 
 app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -65,11 +64,9 @@ const { Server } = require("socket.io");
 const { createChat } = require("./src/controllers/chat/chat.controller");
 
 const httpServer = createServer(app);
-const io = new Server(httpServer, {
-  cors: {
-    origin: "*",
-  },
-});
+
+// remove cors for socket.io
+const io = new Server(httpServer);
 
 io.on("connection", (socket) => {
   console.log("A user connected");
