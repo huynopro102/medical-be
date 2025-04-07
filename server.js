@@ -12,7 +12,16 @@ const app = express();
 app.use(fileUpload());
 
 // remove cors for server
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+  exposedHeaders: ["Content-Disposition"],
+  maxAge: 3600,
+  preflightContinue: false,
+  
+}));
 
 
 app.use("/uploads", express.static("uploads"));
@@ -66,7 +75,11 @@ const { createChat } = require("./src/controllers/chat/chat.controller");
 const httpServer = createServer(app);
 
 // remove cors for socket.io
-const io = new Server(httpServer);
+const io = new Server(httpServer,{
+  cors:{
+    origin: "*",
+  }
+});
 
 io.on("connection", (socket) => {
   console.log("A user connected");
