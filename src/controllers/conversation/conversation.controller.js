@@ -30,6 +30,7 @@ exports.createConversation = async (req, res) => {
 exports.getConversationById = async (req, res) => {
   try {
     const conversation = await Conversation.findById(req.params.id);
+    console.log(conversation);
     if (!conversation) {
       return res.status(404).json({ error: "Conversation not found" });
     }
